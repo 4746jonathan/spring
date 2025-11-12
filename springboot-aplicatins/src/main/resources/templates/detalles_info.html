@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- 🔹 Indica que este documento es HTML5 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<!-- 🔹 "lang='en'" especifica el idioma del documento (inglés por defecto)
+     🔹 "xmlns:th" define el espacio de nombres para Thymeleaf, 
+        necesario para usar los atributos 'th:text', 'th:each', etc. -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 🔹 Define la codificación de caracteres (UTF-8 soporta acentos, ñ, etc.) -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 🔹 Hace que la página sea responsive (se adapta a pantallas móviles y PC) -->
+
+    <!-- 
+        🔹 "th:text" reemplaza el contenido del <title> con el valor de la variable "Titulo"
+        🔹 Si no existe esa variable, mostrará el texto por defecto ("pgina spring boot")
+    -->
+    <title th:text="${Titulo}">pgina spring boot</title>
+</head>
+
+<body>
+    <!-- 🔹 El contenido visible de la página -->
+
+    <h1>Información de empleado</h1>
+    <!-- 🔹 Título estático mostrado en la página -->
+
+    <ul>
+        <!-- 🔹 Lista desordenada (<ul>) para mostrar cada dato del empleado -->
+
+        <!-- Cada <li> muestra un campo del objeto "Empleado" que viene desde el controlador -->
+        <li><strong>Nombre:</strong> <span th:text="${Empleado.nombre}"></span></li>
+        <!-- th:text reemplaza el contenido del <span> por el valor del campo 'nombre' del objeto Empleado -->
+
+        <li><strong>Apellido:</strong> <span th:text="${Empleado.apellido}"></span></li>
+        <li><strong>Dirección:</strong> <span th:text="${Empleado.direccion}"></span></li>
+        <li><strong>Puesto:</strong> <span th:text="${Empleado.puesto}"></span></li>
+        <li><strong>Edad:</strong> <span th:text="${Empleado.edad}"></span></li>
+        <li><strong>Teléfono:</strong> <span th:text="${Empleado.telefono}"></span></li>
+        <li><strong>ID:</strong> <span th:text="${Empleado.id}"></span></li>
+        <!-- 🔹 Cada línea toma un atributo del objeto Empleado que fue agregado en el modelo desde el controlador -->
+    </ul>
+
+</body>
+</html>
